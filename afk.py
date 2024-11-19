@@ -20,5 +20,5 @@ while True:
     time.sleep(0.1)
     pag.click()
     time.sleep(0.1)
-    if keyboard.press_and_release('p'):
+    if keyboard.is_pressed('p'):
         exit()
