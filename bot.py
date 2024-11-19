@@ -3,7 +3,6 @@ import keyboard
 import cv2
 import time
 import mss
-import sys
 
 target_color_rgb = (128, 0, 128)
 
@@ -38,4 +37,4 @@ while True:
             time.sleep(0.2)
             keyboard.release('k')
         if keyboard.is_pressed('p'):
-            sys.exit()
+            exit()
