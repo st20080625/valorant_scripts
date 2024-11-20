@@ -21,4 +21,4 @@ please run requirements.txt before running scripts in this way
 
 pip install -r requirements.txt
 
-please set enemy's color purple
+please set enemy's color purple and set fire key 'k'
