@@ -3,6 +3,7 @@ import keyboard
 import cv2
 import time
 import mss
+import sys
 import ctypes
 
 MOUSEEVENTF_LEFTDOWN = 0x0002   # 左ボタンを押す
@@ -43,4 +44,4 @@ while True:
             ctypes.windll.user32.mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0)
             #keyboard.release('k')
         if keyboard.is_pressed('p'):
-            exit()
+            sys.exit()
