@@ -3,10 +3,6 @@ import keyboard
 import cv2
 import time
 import mss
-import ctypes
-
-MOUSEEVENTF_LEFTDOWN = 0x0002   # 左ボタンを押す
-MOUSEEVENTF_LEFTUP = 0x0004     # 左ボタンを離す
 
 target_color_rgb = (128, 0, 128)
 
@@ -37,10 +33,8 @@ while True:
         mask = cv2.inRange(hsv_array, lower_bound, upper_bound)
         if np.any(mask):
             time.sleep(0.05)
-            #ctypes.windll.user32.mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0)
             keyboard.press('k')
             time.sleep(0.2)
-            #ctypes.windll.user32.mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0)
             keyboard.release('k')
         if keyboard.is_pressed('p'):
             exit()
