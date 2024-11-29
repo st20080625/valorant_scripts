@@ -10,6 +10,7 @@ def rgb_to_hsv(color):
     rgb = np.uint8([[color]])
     hsv = cv2.cvtColor(rgb, cv2.COLOR_RGB2HSV)
     return hsv[0][0]
+#purple
 target_color_rgb = (128, 0, 128)
 target_color_hsv = rgb_to_hsv(target_color_rgb)
 monitor_target = {
@@ -25,9 +26,9 @@ upper_bound = np.array([min(target_color_hsv[0] + hue_range, 179), 255, 255])
 sct = mss_module()
 # keycode(16) 0xA2 = left ctrl
 # keycode(16) 0x50 = p
+# keycode(16) 0x4B = k
 while True:
     if win32api.GetAsyncKeyState(0xA2) < 0:
-        print('program detected keyboard event')
         screenshot = sct.grab(monitor_target)
         rgb_array = np.array(screenshot)
         if rgb_array.shape[-1] == 4:
@@ -36,11 +37,9 @@ while True:
         hsv_array = cv2.cvtColor(rgb_array, cv2.COLOR_RGB2HSV)
         mask = cv2.inRange(hsv_array, lower_bound, upper_bound)
         if np.any(mask):
-            print('Is mask')
             sleep_time = uniform(0.18, 0.24)
             win32api.keybd_event(0x4B, 0, 0, 0)
             #win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN, 0, 0, 0)
-            print('down')
             time.sleep(sleep_time)
             win32api.keybd_event(0x4B, 0, win32con.KEYEVENTF_KEYUP, 0)
             #win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP, 0, 0, 0)
