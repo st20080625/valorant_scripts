@@ -46,3 +46,4 @@ while True:
             time.sleep(0.01)
     if win32api.GetAsyncKeyState(0x50) < 0:
         sys.exit()
+        
