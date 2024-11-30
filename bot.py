@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
 import time
-from mss import mss as mss_module
+from mss import mss
 from random import uniform
 import sys
 import win32api
@@ -23,7 +23,7 @@ hue_range = 10
 lower_bound = np.array([max(target_color_hsv[0] - hue_range, 0), 50, 50])
 upper_bound = np.array([min(target_color_hsv[0] + hue_range, 179), 255, 255])
 
-sct = mss_module()
+sct = mss()
 # keycode(16) 0xA2 = left ctrl
 # keycode(16) 0x50 = p
 # keycode(16) 0x4B = k
@@ -46,4 +46,3 @@ while True:
             time.sleep(0.01)
     if win32api.GetAsyncKeyState(0x50) < 0:
         sys.exit()
-        
